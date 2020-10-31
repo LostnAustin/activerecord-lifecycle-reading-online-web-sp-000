@@ -5,6 +5,8 @@ class Post < ActiveRecord::Base
 
   before_validation :make_title_case
 
+  before_save :email_author_about_post
+
   private
 
   def is_title_case
@@ -13,6 +15,9 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def email_author_about_post
+  end
+  
   def make_title_case
     self.title = self.title.titlecase
   end
